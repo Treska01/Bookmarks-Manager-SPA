@@ -54,3 +54,19 @@
 .bookmarkdeleteForm {
     margin: 20px;
 }
+
+.favicon {
+    text-align: center;
+    background-image: url("../bookmark_logo.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-right: 5px;
+}
+.big {
+    height: 48px;
+    width: 48px;
+}
+.small {
+    height: 24px;
+    width: 24px;
+}
