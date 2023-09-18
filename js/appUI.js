@@ -113,7 +113,7 @@ async function renderDeleteBookmarkForm(id) {
     if (bookmark !== null) {
         $("#content").append(`
         <div class="bookmarkdeleteForm">
-            <h4>Effacer le bookmark suivant?</h4>
+            <h4>Effacer le favori suivant?</h4>
             <br>
             <div class="bookmarkRow" bookmark_id=${bookmark.Id}">
                 <div class="bookmarkContainer">
@@ -141,7 +141,7 @@ async function renderDeleteBookmarkForm(id) {
             renderBookmarks();
         });
     } else {
-        renderError("Bookmark introuvable!");
+        renderError("Favori introuvable!");
     }
 }
 function newBookmark() {
