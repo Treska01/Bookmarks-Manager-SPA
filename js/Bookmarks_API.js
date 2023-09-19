@@ -1,7 +1,7 @@
 class Bookmarks_API {
     static API_URL() {
-        return "http://localhost:5000/api/bookmarks";
-        //return "https://resilient-tremendous-creature.glitch.me/api/bookmarks";
+        //return "http://localhost:5000/api/bookmarks";
+        return "https://resilient-tremendous-creature.glitch.me/api/bookmarks";
     };
     static async Get(id = null) {
         return new Promise(resolve => {
