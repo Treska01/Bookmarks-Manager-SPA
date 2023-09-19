@@ -185,7 +185,7 @@ function renderBookmarkForm(bookmark = null) {
                 InvalidMessage="Veuillez entrer un url valide"
                 value="${bookmark.Url}" 
             />
-            <label for="Categorie" class="form-label">Courriel </label>
+            <label for="Categorie" class="form-label">Catégorie </label>
             <input 
                 class="form-control Categorie"
                 name="Categorie"
