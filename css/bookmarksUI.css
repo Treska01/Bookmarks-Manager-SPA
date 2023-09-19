@@ -57,11 +57,13 @@
 
 .favicon {
     text-align: center;
-    background-image: url("../bookmark_logo.png");
     background-size: contain;
     background-repeat: no-repeat;
     margin-right: 5px;
     
+}
+.fav-default{
+    background-image: url("../bookmark_logo.png");
 }
 .big {
     height: 48px;
@@ -70,4 +72,7 @@
 .small {
     height: 24px;
     width: 24px;
+}
+.friends {
+    display: inline-block;
 }
