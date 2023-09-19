@@ -184,7 +184,7 @@ function renderBookmarkForm(bookmark = null) {
                 InvalidMessage="Le nom comporte un caractère illégal" 
                 value="${bookmark.Titre}"
             />
-            <label for="Url" class="form-label">Url </label>
+            <label for="URL" class="form-label">Url </label>
             <input
                 class="form-control Url"
                 name="Url"
@@ -236,7 +236,7 @@ function getFormData($form) {
     const removeTag = new RegExp("(<[a-zA-Z0-9]+>)|(</[a-zA-Z0-9]+>)", "g");
     var jsonObject = {};
     $.each($form.serializeArray(), (index, control) => {
-        jsonObject[control.titre] = control.value.replace(removeTag, "");
+        jsonObject[control.name] = control.value.replace(removeTag, "");
     });
     return jsonObject;
 }

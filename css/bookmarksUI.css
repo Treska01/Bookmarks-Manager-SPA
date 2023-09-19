@@ -30,17 +30,17 @@
     align-items: center;
 }
 
-.bookmarkName {
+.bookmarkTitre {
     font-size: 1.1rem;
     font-weight: bold;
     color: white;
 }
 
-.bookmarkPhone {
+.bookmarkUrl {
     color: white;
 }
 
-.bookmarkEmail {
+.bookmarkCategorie {
     color: white;
 }
 
