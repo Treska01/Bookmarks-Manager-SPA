@@ -1,5 +1,6 @@
 //<span class="cmdIcon fa-solid fa-ellipsis-vertical"></span>
 let contentScrollPosition = 0;
+let webIconUrlStart = 'http://www.google.com/s2/favicons?sz=64&domain=';
 Init_UI();
 
 function Init_UI() {
@@ -101,7 +102,7 @@ async function renderEditBookmarkForm(id) {
     if (bookmark !== null)
         renderBookmarkForm(bookmark);
     else
-        renderError("Bookmark introuvable!");
+        renderError("Favori introuvable!");
 }
 async function renderDeleteBookmarkForm(id) {
     showWaitingGif();
@@ -118,8 +119,11 @@ async function renderDeleteBookmarkForm(id) {
             <div class="bookmarkRow" bookmark_id=${bookmark.Id}">
                 <div class="bookmarkContainer">
                     <div class="bookmarkLayout">
-                        <div class="bookmarkTitre">${bookmark.Titre}</div>
-                        <div class="bookmarkUrl">${bookmark.Url}</div>
+                        <div class="bookmarkTitre">
+                            <span class="small favicon"
+                             style="background-image:
+                              url(${webIconUrlStart} + ${bookmark.Url})"></span>
+                            ${bookmark.Titre}</div>
                         <div class="bookmarkCategorie">${bookmark.Categorie}</div>
                     </div>
                 </div>  
@@ -163,6 +167,9 @@ function renderBookmarkForm(bookmark = null) {
         <form class="form" id="bookmarkForm">
             <input type="hidden" name="Id" value="${bookmark.Id}"/>
 
+            <div class="small favicon"
+                 id="websiteIcon"></div>
+
             <label for="Titre" class="form-label">Titre </label>
             <input 
                 class="form-control Alpha"
@@ -202,6 +209,10 @@ function renderBookmarkForm(bookmark = null) {
         </form>
     `);
     initFormValidation();
+    $('#Url').on("blur", async function (event) {
+        event.preventDefault();
+        $('websiteIcon').css("background-image", 'url(' + (webIconUrlStart + $('#Url').val()) + ')');
+    });
     $('#bookmarkForm').on("submit", async function (event) {
         event.preventDefault();
         let bookmark = getFormData($("#bookmarkForm"));
@@ -232,8 +243,10 @@ function renderBookmark(bookmark) {
      <div class="bookmarkRow" bookmark_id=${bookmark.Id}">
         <div class="bookmarkContainer noselect">
             <div class="bookmarkLayout">
+                <span class="small favicon"
+                 style="background-image:
+                  url(${webIconUrlStart} + ${bookmark.Url})"></span>
                 <span class="bookmarkTitre">${bookmark.Titre}</span>
-                <span class="bookmarkUrl">${bookmark.Url}</span>
                 <span class="bookmarkCategorie">${bookmark.Categorie}</span>
             </div>
             <div class="bookmarkCommandPanel">
