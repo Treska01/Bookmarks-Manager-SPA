@@ -168,7 +168,7 @@ function renderBookmarkForm(bookmark = null) {
                 class="form-control Alpha"
                 name="Titre" 
                 id="Titre" 
-                placeholder="Nom"
+                placeholder="Titre"
                 required
                 RequireMessage="Veuillez entrer un nom"
                 InvalidMessage="Le nom comporte un caractère illégal" 
@@ -179,7 +179,7 @@ function renderBookmarkForm(bookmark = null) {
                 class="form-control Url"
                 name="Url"
                 id="Url"
-                placeholder="(000) 000-0000"
+                placeholder="Url"
                 required
                 RequireMessage="Veuillez entrer l'url" 
                 InvalidMessage="Veuillez entrer un url valide"
@@ -190,7 +190,7 @@ function renderBookmarkForm(bookmark = null) {
                 class="form-control Categorie"
                 name="Categorie"
                 id="Categorie"
-                placeholder="Courriel"
+                placeholder="Catégorie"
                 required
                 RequireMessage="Veuillez entrer votre courriel" 
                 InvalidMessage="Veuillez entrer un courriel valide"
