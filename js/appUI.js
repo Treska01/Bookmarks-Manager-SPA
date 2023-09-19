@@ -118,9 +118,9 @@ async function renderDeleteBookmarkForm(id) {
             <div class="bookmarkRow" bookmark_id=${bookmark.Id}">
                 <div class="bookmarkContainer">
                     <div class="bookmarkLayout">
-                        <div class="bookmarkName">${bookmark.Name}</div>
-                        <div class="bookmarkPhone">${bookmark.Phone}</div>
-                        <div class="bookmarkEmail">${bookmark.Email}</div>
+                        <div class="bookmarkTitre">${bookmark.Titre}</div>
+                        <div class="bookmarkUrl">${bookmark.Url}</div>
+                        <div class="bookmarkCategorie">${bookmark.Categorie}</div>
                     </div>
                 </div>  
             </div>   
@@ -147,9 +147,9 @@ async function renderDeleteBookmarkForm(id) {
 function newBookmark() {
     bookmark = {};
     bookmark.Id = 0;
-    bookmark.Name = "";
-    bookmark.Phone = "";
-    bookmark.Email = "";
+    bookmark.Titre = "";
+    bookmark.Url = "";
+    bookmark.Categorie = "";
     return bookmark;
 }
 function renderBookmarkForm(bookmark = null) {
@@ -163,38 +163,38 @@ function renderBookmarkForm(bookmark = null) {
         <form class="form" id="bookmarkForm">
             <input type="hidden" name="Id" value="${bookmark.Id}"/>
 
-            <label for="Name" class="form-label">Nom </label>
+            <label for="Titre" class="form-label">Titre </label>
             <input 
                 class="form-control Alpha"
-                name="Name" 
-                id="Name" 
+                name="Titre" 
+                id="Titre" 
                 placeholder="Nom"
                 required
                 RequireMessage="Veuillez entrer un nom"
                 InvalidMessage="Le nom comporte un caractère illégal" 
-                value="${bookmark.Name}"
+                value="${bookmark.Titre}"
             />
-            <label for="Phone" class="form-label">Téléphone </label>
+            <label for="Url" class="form-label">Url </label>
             <input
-                class="form-control Phone"
-                name="Phone"
-                id="Phone"
+                class="form-control Url"
+                name="Url"
+                id="Url"
                 placeholder="(000) 000-0000"
                 required
-                RequireMessage="Veuillez entrer votre téléphone" 
-                InvalidMessage="Veuillez entrer un téléphone valide"
-                value="${bookmark.Phone}" 
+                RequireMessage="Veuillez entrer l'url" 
+                InvalidMessage="Veuillez entrer un url valide"
+                value="${bookmark.Url}" 
             />
-            <label for="Email" class="form-label">Courriel </label>
+            <label for="Categorie" class="form-label">Courriel </label>
             <input 
-                class="form-control Email"
-                name="Email"
-                id="Email"
+                class="form-control Categorie"
+                name="Categorie"
+                id="Categorie"
                 placeholder="Courriel"
                 required
                 RequireMessage="Veuillez entrer votre courriel" 
                 InvalidMessage="Veuillez entrer un courriel valide"
-                value="${bookmark.Email}"
+                value="${bookmark.Categorie}"
             />
             <hr>
             <input type="submit" value="Enregistrer" id="saveBookmark" class="btn btn-primary">
@@ -222,7 +222,7 @@ function getFormData($form) {
     const removeTag = new RegExp("(<[a-zA-Z0-9]+>)|(</[a-zA-Z0-9]+>)", "g");
     var jsonObject = {};
     $.each($form.serializeArray(), (index, control) => {
-        jsonObject[control.name] = control.value.replace(removeTag, "");
+        jsonObject[control.titre] = control.value.replace(removeTag, "");
     });
     return jsonObject;
 }
@@ -232,13 +232,13 @@ function renderBookmark(bookmark) {
      <div class="bookmarkRow" bookmark_id=${bookmark.Id}">
         <div class="bookmarkContainer noselect">
             <div class="bookmarkLayout">
-                <span class="bookmarkName">${bookmark.Name}</span>
-                <span class="bookmarkPhone">${bookmark.Phone}</span>
-                <span class="bookmarkEmail">${bookmark.Email}</span>
+                <span class="bookmarkTitre">${bookmark.Titre}</span>
+                <span class="bookmarkUrl">${bookmark.Url}</span>
+                <span class="bookmarkCategorie">${bookmark.Categorie}</span>
             </div>
             <div class="bookmarkCommandPanel">
-                <span class="editCmd cmdIcon fa fa-pencil" editBookmarkId="${bookmark.Id}" title="Modifier ${bookmark.Name}"></span>
-                <span class="deleteCmd cmdIcon fa fa-trash" deleteBookmarkId="${bookmark.Id}" title="Effacer ${bookmark.Name}"></span>
+                <span class="editCmd cmdIcon fa fa-pencil" editBookmarkId="${bookmark.Id}" title="Modifier ${bookmark.Titre}"></span>
+                <span class="deleteCmd cmdIcon fa fa-trash" deleteBookmarkId="${bookmark.Id}" title="Effacer ${bookmark.Titre}"></span>
             </div>
         </div>
     </div>           
